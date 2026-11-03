@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroLuxe | Aviación Ejecutiva & Charter VIP</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0B1325',
+                            900: '#050B14',
+                            950: '#02050A',
+                        },
+                        gold: {
+                            300: '#F3E5AB',
+                            400: '#E6CA65',
+                            500: '#D4AF37',
+                            600: '#AA820A',
+                        },
+                        silver: {
+                            100: '#F4F5F7',
+                            300: '#C5C9D3',
+                            500: '#8A92A6',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF1B0 0%, #D4AF37 50%, #997B15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #E6CA65 0%, #D4AF37 50%, #B38F1E 100%);
+        }
+        .gold-border-glow:focus {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+        .glass-panel {
+            background: rgba(11, 19, 37, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .glass-card {
+            background: rgba(15, 25, 48, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-silver-100 font-sans antialiased selection:bg-gold-500 selection:text-navy-950">
+
+    <!-- Header / Navbar -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="glass-panel rounded-2xl px-6 py-3 flex items-center justify-between shadow-2xl">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-navy-950 font-bold text-xl shadow-lg group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-black fa-plane-up"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold tracking-widest text-white font-serif uppercase">AERO<span class="gold-gradient-text">LUXE</span></span>
+                        <span class="text-[9px] tracking-[0.25em] text-silver-500 uppercase -mt-1">Private Aviation</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-silver-300">
+                    <a href="#inicio" class="hover:text-gold-400 transition-colors">Inicio</a>
+                    <a href="#cotizador" class="hover:text-gold-400 transition-colors">Cotizar</a>
+                    <a href="#flota" class="hover:text-gold-400 transition-colors">Flota</a>
+                    <a href="#servicios" class="hover:text-gold-400 transition-colors">Servicios VIP</a>
+                    <a href="#experiencia" class="hover:text-gold-400 transition-colors">Experiencia</a>
+                    <a href="#contacto" class="hover:text-gold-400 transition-colors">Contacto</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#cotizador" class="gold-gradient-bg text-navy-950 font-semibold px-5 py-2.5 rounded-xl hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-xs"></i>
+                        <span>Reservar Vuelo</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-silver-300 hover:text-white p-2 focus:outline-none" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden mt-2 max-w-7xl mx-auto glass-panel rounded-2xl p-6 transition-all border border-gold-500/20">
+            <div class="flex flex-col gap-4 font-medium text-silver-300">
+                <a href="#inicio" class="mobile-link py-2 border-b border-white/5 hover:text-gold-400">Inicio</a>
+                <a href="#cotizador" class="mobile-link py-2 border-b border-white/5 hover:text-gold-400">Cotizar Vuelo</a>
+                <a href="#flota" class="mobile-link py-2 border-b border-white/5 hover:text-gold-400">Nuestra Flota</a>
+                <a href="#servicios" class="mobile-link py-2 border-b border-white/5 hover:text-gold-400">Servicios Exclusivos</a>
+                <a href="#experiencia" class="mobile-link py-2 border-b border-white/5 hover:text-gold-400">Experiencia Lux</a>
+                <a href="#contacto" class="mobile-link py-2 hover:text-gold-400">Contacto</a>
+                <a href="#cotizador" class="mobile-link gold-gradient-bg text-navy-950 font-bold py-3 rounded-xl text-center mt-2">
+                    Reservar Vuelo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+        <!-- Background Image with Dark Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=2000&q=80" 
+                 alt="Private Jet Interior" 
+                 class="w-full h-full object-cover object-center scale-105 animate-pulse duration-[10000ms]">
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-navy-950/60"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 w-full pt-12">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-gold-500/30 text-gold-400 text-xs font-semibold tracking-wider uppercase">
+                        <i class="fa-solid fa-crown text-xs"></i> El Arte de Volar sin Límites
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight">
+                        Eleve sus viajes a la <span class="gold-gradient-text italic font-normal">perfección</span>
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-silver-300 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                        Acceda a la flota ejecutiva más sofisticada del mundo. Vuelos privados chárter con servicio hiperpersonalizado, privacidad absoluta y los más altos estándares de seguridad global.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#flota" class="w-full sm:w-auto px-8 py-4 rounded-xl gold-gradient-bg text-navy-950 font-bold hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3">
+                            <span>Explorar Flota</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#cotizador" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card border border-white/20 text-white font-medium hover:bg-white/10 hover:border-gold-500/50 transition-all text-center flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-calculator text-gold-400"></i>
+                            <span>Solicitar Cotización</span>
+                        </a>
+                    </div>
+
+                    <!-- Dynamic Trust Badges -->
+                    <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 text-left">
+                        <div>
+                            <p class="text-2xl font-bold text-white font-serif">100%</p>
+                            <p class="text-xs text-silver-500">Privacidad Guardada</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-white font-serif">+150</p>
+                            <p class="text-xs text-silver-500">Destinos Directos</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-white font-serif">ARGUS</p>
+                            <p class="text-xs text-silver-500">Certificado Platino</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fast Jet Finder Widget inside Hero -->
+                <div class="lg:col-span-5" id="cotizador">
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-gold-500/30 shadow-2xl relative overflow-hidden">
+                        <div class="absolute -right-12 -top-12 w-32 h-32 bg-gold-500/10 rounded-full blur-2xl"></div>
+                        
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-white font-serif">Cotizador Expreso</h3>
+                                <p class="text-xs text-silver-500">Reciba un presupuesto inmediato</p>
+                            </div>
+                            <span class="p-2.5 rounded-xl bg-gold-500/10 text-gold-400 border border-gold-500/20">
+                                <i class="fa-solid fa-plane-departure text-lg"></i>
+                            </span>
+                        </div>
+
+                        <!-- Trip Type Switcher -->
+                        <div class="grid grid-cols-2 gap-2 bg-navy-950/60 p-1 rounded-xl mb-5 border border-white/5">
+                            <button type="button" id="btn-solo-ida" class="py-2 text-xs font-semibold rounded-lg text-navy-950 gold-gradient-bg transition-all">Solo Ida</button>
+                            <button type="button" id="btn-ida-vuelta" class="py-2 text-xs font-semibold rounded-lg text-silver-300 hover:text-white transition-all">Ida y Vuelta</button>
+                        </div>
+
+                        <form id="hero-quote-form" class="space-y-4">
+                            <!-- Origin & Destination -->
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-xs font-medium text-silver-300 mb-1">Origen</label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-location-dot absolute left-3.5 top-3.5 text-gold-500 text-xs"></i>
+                                        <input type="text" id="orig-input" required placeholder="Ej. Madrid (LEMD / MAD)" class="w-full bg-navy-900/80 border border-white/10 rounded-xl py-2.5 pl-9 pr-4 text-sm text-white placeholder-silver-500 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 focus:outline-none transition-all">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-silver-300 mb-1">Destino</label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-plane-arrival absolute left-3.5 top-3.5 text-gold-500 text-xs"></i>
+                                        <input type="text" id="dest-input" required placeholder="Ej. Miami (KMIA / MIA)" class="w-full bg-navy-900/80 border border-white/10 rounded-xl py-2.5 pl-9 pr-4 text-sm text-white placeholder-silver-500 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 focus:outline-none transition-all">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Date & Passengers -->
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-medium text-silver-300 mb-1">Fecha de Salida</label>
+                                    <input type="date" required id="date-input" class="w-full bg-navy-900/80 border border-white/10 rounded-xl py-2.5 px-3 text-xs text-white focus:border-gold-500 focus:ring-1 focus:ring-gold-500 focus:outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-silver-300 mb-1">Pasajeros</label>
+                                    <select id="pax-input" class="w-full bg-navy-900/80 border border-white/10 rounded-xl py-2.5 px-3 text-xs text-white focus:border-gold-500 focus:ring-1 focus:ring-gold-500 focus:outline-none transition-all">
+                                        <option value="1-4">1 - 4 Pasajeros</option>
+                                        <option value="5-8">5 - 8 Pasajeros</option>
+                                        <option value="9-14">9 - 14 Pasajeros</option>
+                                        <option value="15+">15+ Grupal / VIP</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Category -->
+                            <div>
+                                <label class="block text-xs font-medium text-silver-300 mb-1">Categoría de Jet</label>
+                                <select id="cat-input" class="w-full bg-navy-900/80 border border-white/10 rounded-xl py-2.5 px-3 text-xs text-white focus:border-gold-500 focus:ring-1 focus:ring-gold-500 focus:outline-none transition-all">
+                                    <option value="Light Jet">Light Jet (Alcance Corto)</option>
+                                    <option value="Midsize Jet">Midsize Jet (Alcance Medio)</option>
+                                    <option value="Heavy / Ultra Long Range" selected>Ultra Long Range (Transcontinental)</option>
+                                    <option value="VIP Airliner">VIP Airliner (Grupal Ejecutivo)</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 rounded-xl gold-gradient-bg text-navy-950 font-bold text-sm hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all flex items-center justify-center gap-2 mt-2">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <span>Buscar Opciones Disponibles</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Banner Section -->
+    <section class="py-12 bg-navy-900/50 border-y border-white/5 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-4">
+                    <div class="text-3xl sm:text-4xl font-serif font-bold text-gold-400 mb-1">15+</div>
+                    <div class="text-xs text-silver-300 uppercase tracking-wider font-medium">Años de Excelencia</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl sm:text-4xl font-serif font-bold text-gold-400 mb-1">99.8%</div>
+                    <div class="text-xs text-silver-300 uppercase tracking-wider font-medium">Puntualidad Global</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl sm:text-4xl font-serif font-bold text-gold-400 mb-1">+12,500</div>
+                    <div class="text-xs text-silver-300 uppercase tracking-wider font-medium">Horas de Vuelo Sin Incidencias</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl sm:text-4xl font-serif font-bold text-gold-400 mb-1">2,400+</div>
+                    <div class="text-xs text-silver-300 uppercase tracking-wider font-medium">Aeropuertos Privados Accesibles</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aircraft Fleet Section -->
+    <section id="flota" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <div class="text-gold-400 text-xs font-semibold uppercase tracking-widest mb-2">Colección de Ingeniería Superior</div>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">Nuestra Flota Exclusiva</h2>
+                </div>
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-2 bg-navy-900/80 p-1.5 rounded-2xl border border-white/10" id="fleet-filters">
+                    <button data-filter="all" class="filter-btn px-4 py-2 text-xs font-semibold rounded-xl bg-gold-500 text-navy-950 transition-all">Todos</button>
+                    <button data-filter="heavy" class="filter-btn px-4 py-2 text-xs font-semibold rounded-xl text-silver-300 hover:text-white transition-all">Heavy Jets</button>
+                    <button data-filter="midsize" class="filter-btn px-4 py-2 text-xs font-semibold rounded-xl text-silver-300 hover:text-white transition-all">Midsize</button>
+                    <button data-filter="light" class="filter-btn px-4 py-2 text-xs font-semibold rounded-xl text-silver-300 hover:text-white transition-all">Light Jets</button>
+                </div>
+            </div>
+
+            <!-- Fleet Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="fleet-container">
+
+                <!-- Aircraft Card 1 -->
+                <div class="fleet-card glass-card rounded-3xl overflow-hidden transition-all duration-300 flex flex-col" data-category="heavy">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80" alt="Gulfstream G650ER" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-navy-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/30 text-[11px] font-semibold text-gold-400">
+                            Ultra Long Range
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-2xl font-serif font-bold text-white">Gulfstream G650ER</h3>
+                                <span class="text-xs text-silver-500 font-mono">G650</span>
+                            </div>
+                            <p class="text-xs text-silver-300 line-clamp-2">El estándar de oro en la aviación de negocios. Velocidad ultra-rápida y máximo confort intercontinental.</p>
+                        </div>
+
+                        <!-- Technical Specs -->
+                        <div class="grid grid-cols-3 gap-2 py-3 border-y border-white/10 text-center">
+                            <div>
+                                <i class="fa-solid fa-users text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">Hasta 16</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Pasajeros</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-route text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">13,890 km</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Alcance</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-gauge-high text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">Mach 0.925</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Velocidad</span>
+                            </div>
+                        </div>
+
+                        <button onclick="selectJet('Gulfstream G650ER')" class="w-full py-3 rounded-xl border border-gold-500/30 text-gold-400 font-semibold text-xs hover:bg-gold-500 hover:text-navy-950 transition-all flex items-center justify-center gap-2">
+                            <span>Solicitar este Modelo</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Aircraft Card 2 -->
+                <div class="fleet-card glass-card rounded-3xl overflow-hidden transition-all duration-300 flex flex-col" data-category="heavy">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&w=800&q=80" alt="Bombardier Global 7500" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-navy-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/30 text-[11px] font-semibold text-gold-400">
+                            Ultra Long Range
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-2xl font-serif font-bold text-white">Bombardier Global 7500</h3>
+                                <span class="text-xs text-silver-500 font-mono">G7500</span>
+                            </div>
+                            <p class="text-xs text-silver-300 line-clamp-2">El jet ejecutivo más grande y de mayor alcance del mundo, con cuatro espacios independientes de habitabilidad.</p>
+                        </div>
+
+                        <!-- Technical Specs -->
+                        <div class="grid grid-cols-3 gap-2 py-3 border-y border-white/10 text-center">
+                            <div>
+                                <i class="fa-solid fa-users text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">Hasta 19</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Pasajeros</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-route text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">14,260 km</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Alcance</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-gauge-high text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">Mach 0.925</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Velocidad</span>
+                            </div>
+                        </div>
+
+                        <button onclick="selectJet('Bombardier Global 7500')" class="w-full py-3 rounded-xl border border-gold-500/30 text-gold-400 font-semibold text-xs hover:bg-gold-500 hover:text-navy-950 transition-all flex items-center justify-center gap-2">
+                            <span>Solicitar este Modelo</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Aircraft Card 3 -->
+                <div class="fleet-card glass-card rounded-3xl overflow-hidden transition-all duration-300 flex flex-col" data-category="midsize">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519074069444-1ba4eaa1674a?auto=format&fit=crop&w=800&q=80" alt="Cessna Citation Latitude" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-navy-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/30 text-[11px] font-semibold text-gold-400">
+                            Super Midsize
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-2xl font-serif font-bold text-white">Citation Latitude</h3>
+                                <span class="text-xs text-silver-500 font-mono">C680A</span>
+                            </div>
+                            <p class="text-xs text-silver-300 line-clamp-2">Cabina de piso plano amplia y elegante, ideal para trayectos continentales y reuniones corporativas en vuelo.</p>
+                        </div>
+
+                        <!-- Technical Specs -->
+                        <div class="grid grid-cols-3 gap-2 py-3 border-y border-white/10 text-center">
+                            <div>
+                                <i class="fa-solid fa-users text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">9 Pasajeros</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Pasajeros</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-route text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">5,000 km</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Alcance</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-gauge-high text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">826 km/h</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Velocidad</span>
+                            </div>
+                        </div>
+
+                        <button onclick="selectJet('Citation Latitude')" class="w-full py-3 rounded-xl border border-gold-500/30 text-gold-400 font-semibold text-xs hover:bg-gold-500 hover:text-navy-950 transition-all flex items-center justify-center gap-2">
+                            <span>Solicitar este Modelo</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Aircraft Card 4 -->
+                <div class="fleet-card glass-card rounded-3xl overflow-hidden transition-all duration-300 flex flex-col" data-category="heavy">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80" alt="Dassault Falcon 8X" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-navy-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/30 text-[11px] font-semibold text-gold-400">
+                            Tri-Jet Heavy
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-2xl font-serif font-bold text-white">Dassault Falcon 8X</h3>
+                                <span class="text-xs text-silver-500 font-mono">FA8X</span>
+                            </div>
+                            <p class="text-xs text-silver-300 line-clamp-2">Tecnología de cazas de combate aplicada a la aviación privada. Gran maniobrabilidad y sonoridad extremadamente baja.</p>
+                        </div>
+
+                        <!-- Technical Specs -->
+                        <div class="grid grid-cols-3 gap-2 py-3 border-y border-white/10 text-center">
+                            <div>
+                                <i class="fa-solid fa-users text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">14 Pasajeros</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Pasajeros</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-route text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">11,945 km</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Alcance</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-gauge-high text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">Mach 0.90</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Velocidad</span>
+                            </div>
+                        </div>
+
+                        <button onclick="selectJet('Dassault Falcon 8X')" class="w-full py-3 rounded-xl border border-gold-500/30 text-gold-400 font-semibold text-xs hover:bg-gold-500 hover:text-navy-950 transition-all flex items-center justify-center gap-2">
+                            <span>Solicitar este Modelo</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Aircraft Card 5 -->
+                <div class="fleet-card glass-card rounded-3xl overflow-hidden transition-all duration-300 flex flex-col" data-category="light">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559628233-eb1b1a45564b?auto=format&fit=crop&w=800&q=80" alt="Embraer Phenom 300E" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-navy-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/30 text-[11px] font-semibold text-gold-400">
+                            Light Jet
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-2xl font-serif font-bold text-white">Phenom 300E</h3>
+                                <span class="text-xs text-silver-500 font-mono">E55P</span>
+                            </div>
+                            <p class="text-xs text-silver-300 line-clamp-2">El jet ligero más vendido del mundo. Eficiencia, rapidez y confort excepcional para rutas regionales rápidas.</p>
+                        </div>
+
+                        <!-- Technical Specs -->
+                        <div class="grid grid-cols-3 gap-2 py-3 border-y border-white/10 text-center">
+                            <div>
+                                <i class="fa-solid fa-users text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">7 Pasajeros</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Pasajeros</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-route text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">3,650 km</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Alcance</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-gauge-high text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">839 km/h</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Velocidad</span>
+                            </div>
+                        </div>
+
+                        <button onclick="selectJet('Embraer Phenom 300E')" class="w-full py-3 rounded-xl border border-gold-500/30 text-gold-400 font-semibold text-xs hover:bg-gold-500 hover:text-navy-950 transition-all flex items-center justify-center gap-2">
+                            <span>Solicitar este Modelo</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Aircraft Card 6 -->
+                <div class="fleet-card glass-card rounded-3xl overflow-hidden transition-all duration-300 flex flex-col" data-category="midsize">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1520437358207-323b43b50729?auto=format&fit=crop&w=800&q=80" alt="Challenger 350" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-navy-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/30 text-[11px] font-semibold text-gold-400">
+                            Super Midsize
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-2xl font-serif font-bold text-white">Challenger 350</h3>
+                                <span class="text-xs text-silver-500 font-mono">CL35</span>
+                            </div>
+                            <p class="text-xs text-silver-300 line-clamp-2">Rendimiento constante, acabados de ultra lujo y tecnología acústica líder en su categoría.</p>
+                        </div>
+
+                        <!-- Technical Specs -->
+                        <div class="grid grid-cols-3 gap-2 py-3 border-y border-white/10 text-center">
+                            <div>
+                                <i class="fa-solid fa-users text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">10 Pasajeros</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Pasajeros</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-route text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">5,926 km</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Alcance</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-gauge-high text-gold-400 text-xs mb-1 block"></i>
+                                <span class="text-xs font-semibold text-white block">882 km/h</span>
+                                <span class="text-[10px] text-silver-500 uppercase">Velocidad</span>
+                            </div>
+                        </div>
+
+                        <button onclick="selectJet('Challenger 350')" class="w-full py-3 rounded-xl border border-gold-500/30 text-gold-400 font-semibold text-xs hover:bg-gold-500 hover:text-navy-950 transition-all flex items-center justify-center gap-2">
+                            <span>Solicitar este Modelo</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Exclusive Services Section -->
+    <section id="servicios" class="py-24 bg-navy-900/60 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-400 text-xs font-semibold uppercase tracking-widest mb-2 block">Soluciones Aeronáuticas a Medida</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">Servicios VIP Exclusivos</h2>
+                <p class="text-silver-300 text-sm sm:text-base font-light">Diseñamos cada aspecto de su experiencia aeronáutica con atención impecable al detalle y estándares globales de primera clase.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-gold-500/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-3">Vuelos Chárter Privados</h3>
+                    <p class="text-xs text-silver-300 leading-relaxed">Flexibilidad total de horarios y destinos. Vuele directo a más de 2,400 terminales privadas FBO sin colas ni esperas.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-gold-500/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-3">Catering VIP & Sommelier</h3>
+                    <p class="text-xs text-silver-300 leading-relaxed">Gastronomía de alta cocina adaptada a sus preferencias personales, maridada con vinos y champagnes de edición limitada.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-gold-500/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-3">Gestión de Aeronaves</h3>
+                    <p class="text-xs text-silver-300 leading-relaxed">Administración integral para propietarios de jets: mantenimiento, tripulación, cumplimiento normativo y monetización de horas libres.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-gold-500/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-3">Carga Aérea Crítica</h3>
+                    <p class="text-xs text-silver-300 leading-relaxed">Transporte seguro y confidencial de mercancías de alto valor, arte y envíos médicos urgentes con escolta dedicada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / Interactive Feature Showcase -->
+    <section id="experiencia" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden border border-gold-500/20 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1000&q=80" alt="Experiencia VIP" class="w-full h-auto object-cover">
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -right-6 z-20 glass-panel p-6 rounded-2xl border border-gold-500/40 hidden sm:block max-w-xs">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gold-500 flex items-center justify-center text-navy-950 text-xl font-bold">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Seguridad Total</h4>
+                                <p class="text-xs text-silver-500">Certificaciones Wyvern & ARGUS Platinum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-gold-400 text-xs font-semibold uppercase tracking-widest">Atención Impecable</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white leading-tight">La experiencia del vuelo sin fricciones</h2>
+                    <p class="text-silver-300 text-sm leading-relaxed">Desde el momento en que se pone en contacto con nuestro equipo Concierge 24/7, nos encargamos de absolutamente todo. Olvídese de las largas esperas, controles de seguridad masivos y retrasos.</p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-clock text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-semibold text-white">Despegue en 15 Minutos</h4>
+                                <p class="text-xs text-silver-500 mt-0.5">Llegue al FBO privado minutos antes del vuelo e ingrese directamente a su aeronave.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-user-shield text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-semibold text-white">Confidencialidad Garantizada</h4>
+                                <p class="text-xs text-silver-500 mt-0.5">Protocolos estrictos de privacidad y protección de datos para ejecutivos y figuras públicas.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-car-side text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-semibold text-white">Transfer Terrestre VIP Integrado</h4>
+                                <p class="text-xs text-silver-500 mt-0.5">Vehículos blindados o limusinas esperando a pie de pista en su destino final.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Custom Quote Section -->
+    <section id="contacto" class="py-24 bg-navy-900/40 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-gold-400 text-xs font-semibold uppercase tracking-widest mb-2 block">Atención Personalizada 24/7</span>
+                        <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">Hable con un Asesor VIP</h2>
+                        <p class="text-silver-300 text-sm leading-relaxed">Nuestro equipo de brokers aéreos está disponible a cualquier hora para organizar vuelos charter urgentes o gestionar itinerarios complejos.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl glass-panel text-gold-400 flex items-center justify-center text-lg border border-gold-500/30">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-silver-500">Atención Telefónica Directa</p>
+                                <p class="text-base font-semibold text-white">+34 900 800 900 / +1 (800) 555-LUXE</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl glass-panel text-gold-400 flex items-center justify-center text-lg border border-gold-500/30">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-silver-500">Correo Electrónico VIP</p>
+                                <p class="text-base font-semibold text-white">charter@aeroluxe-jets.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl glass-panel text-gold-400 flex items-center justify-center text-lg border border-gold-500/30">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-silver-500">Base Principal</p>
+                                <p class="text-base font-semibold text-white">FBO Terminal, Aeropuerto Adolfo Suárez Madrid-Barajas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Quote Form -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-gold-500/20 shadow-2xl">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-6">Solicitud de Itinerario Personalizado</h3>
+                        
+                        <form id="contact-form" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-silver-300 mb-1">Nombre Completo *</label>
+                                    <input type="text" id="contact-name" required placeholder="Ej. Carlos Mendoza" class="w-full bg-navy-950/80 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:border-gold-500 focus:outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-silver-300 mb-1">Empresa / Organización</label>
+                                    <input type="text" placeholder="Opcional" class="w-full bg-navy-950/80 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:border-gold-500 focus:outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-silver-300 mb-1">Correo Electrónico *</label>
+                                    <input type="email" id="contact-email" required placeholder="carlos@empresa.com" class="w-full bg-navy-950/80 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:border-gold-500 focus:outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-silver-300 mb-1">Teléfono con Prefijo *</label>
+                                    <input type="tel" id="contact-phone" required placeholder="+34 600 000 000" class="w-full bg-navy-950/80 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:border-gold-500 focus:outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-silver-300 mb-1">Aeronave Preferida</label>
+                                <input type="text" id="selected-jet-input" placeholder="Ej. Gulfstream G650ER o similar" class="w-full bg-navy-950/80 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:border-gold-500 focus:outline-none transition-all">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-silver-300 mb-1">Requerimientos Especiales / Detalles del Vuelo</label>
+                                <textarea rows="4" placeholder="Mencione itinerario, catering especial, catering para mascotas o requerimientos de transfer..." class="w-full bg-navy-950/80 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:border-gold-500 focus:outline-none transition-all resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl gold-gradient-bg text-navy-950 font-bold text-sm hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Enviar Solicitud Privada</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-navy-950 border-t border-white/10 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Col 1: Logo & Info -->
+                <div class="lg:col-span-2 space-y-4">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl gold-gradient-bg flex items-center justify-center text-navy-950 font-bold text-xl">
+                            <i class="fa-solid fa-plane-up"></i>
+                        </div>
+                        <span class="text-xl font-bold tracking-widest text-white font-serif uppercase">AERO<span class="gold-gradient-text">LUXE</span></span>
+                    </a>
+                    <p class="text-xs text-silver-500 max-w-sm leading-relaxed">
+                        Líder global en servicios de aviación privada ejecutiva, alquiler de jets y soluciones aeronáuticas de lujo con estándares de excelencia insuperables.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-full bg-navy-900 border border-white/10 flex items-center justify-center text-silver-300 hover:text-gold-400 hover:border-gold-500 transition-all">
+                            <i class="fa-brands fa-instagram text-xs"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-navy-900 border border-white/10 flex items-center justify-center text-silver-300 hover:text-gold-400 hover:border-gold-500 transition-all">
+                            <i class="fa-brands fa-linkedin-in text-xs"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-navy-900 border border-white/10 flex items-center justify-center text-silver-300 hover:text-gold-400 hover:border-gold-500 transition-all">
+                            <i class="fa-brands fa-x-twitter text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Flota</h4>
+                    <ul class="space-y-2.5 text-xs text-silver-300">
+                        <li><a href="#flota" class="hover:text-gold-400 transition-colors">Gulfstream G650ER</a></li>
+                        <li><a href="#flota" class="hover:text-gold-400 transition-colors">Bombardier Global 7500</a></li>
+                        <li><a href="#flota" class="hover:text-gold-400 transition-colors">Citation Latitude</a></li>
+                        <li><a href="#flota" class="hover:text-gold-400 transition-colors">Dassault Falcon 8X</a></li>
+                        <li><a href="#flota" class="hover:text-gold-400 transition-colors">Phenom 300E</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Servicios</h4>
+                    <ul class="space-y-2.5 text-xs text-silver-300">
+                        <li><a href="#servicios" class="hover:text-gold-400 transition-colors">Vuelos Chárter VIP</a></li>
+                        <li><a href="#servicios" class="hover:text-gold-400 transition-colors">Gestión de Aeronaves</a></li>
+                        <li><a href="#servicios" class="hover:text-gold-400 transition-colors">Catering Exclusivo</a></li>
+                        <li><a href="#servicios" class="hover:text-gold-400 transition-colors">Carga Crítica</a></li>
+                        <li><a href="#servicios" class="hover:text-gold-400 transition-colors">Venta de Jets</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Newsletter VIP</h4>
+                    <p class="text-xs text-silver-500 mb-3">Reciba ofertas de tramos vacíos (Empty Legs) e itinerarios exclusivos.</p>
+                    <form id="newsletter-form" class="space-y-2">
+                        <input type="email" required placeholder="Su correo electrónico" class="w-full bg-navy-900 border border-white/10 rounded-xl py-2 px-3 text-xs text-white focus:border-gold-500 focus:outline-none">
+                        <button type="submit" class="w-full py-2.5 rounded-xl gold-gradient-bg text-navy-950 font-bold text-xs hover:opacity-90 transition-opacity">Suscribirme</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-silver-500 gap-4">
+                <p>&copy; 2026 AeroLuxe Private Aviation. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-silver-300 transition-colors">Política de Privacidad</a>
+                    <a href="#" class="hover:text-silver-300 transition-colors">Términos de Servicio</a>
+                    <a href="#" class="hover:text-silver-300 transition-colors">Certificaciones de Seguridad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Confirmation Modal Component -->
+    <div id="modal-confirmation" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-gold-500/40 max-w-md w-full text-center space-y-6 transform scale-95 transition-transform duration-300" id="modal-box">
+            <div class="w-16 h-16 bg-gold-500/20 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto border border-gold-500/40">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            
+            <div class="space-y-2">
+                <h3 class="text-2xl font-serif font-bold text-white">¡Solicitud Recibida!</h3>
+                <p class="text-xs text-silver-300 leading-relaxed" id="modal-message">
+                    Un asesor concierge VIP revisará su itinerario y se pondrá en contacto en menos de 15 minutos con las mejores opciones de flota disponibles.
+                </p>
+            </div>
+
+            <button id="modal-close-btn" class="w-full py-3 rounded-xl gold-gradient-bg text-navy-950 font-bold text-xs hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Mobile Menu Toggle Logic
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Header Background Blur on Scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-2');
+                    header.classList.remove('py-4');
+                } else {
+                    header.classList.add('py-4');
+                    header.classList.remove('py-2');
+                }
+            });
+
+            // Trip Type Toggle in Hero Calculator
+            const btnSoloIda = document.getElementById('btn-solo-ida');
+            const btnIdaVuelta = document.getElementById('btn-ida-vuelta');
+
+            btnSoloIda.addEventListener('click', () => {
+                btnSoloIda.className = 'py-2 text-xs font-semibold rounded-lg text-navy-950 gold-gradient-bg transition-all';
+                btnIdaVuelta.className = 'py-2 text-xs font-semibold rounded-lg text-silver-300 hover:text-white transition-all';
+            });
+
+            btnIdaVuelta.addEventListener('click', () => {
+                btnIdaVuelta.className = 'py-2 text-xs font-semibold rounded-lg text-navy-950 gold-gradient-bg transition-all';
+                btnSoloIda.className = 'py-2 text-xs font-semibold rounded-lg text-silver-300 hover:text-white transition-all';
+            });
+
+            // Fleet Category Filtering Logic
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const fleetCards = document.querySelectorAll('.fleet-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Reset active button state
+                    filterBtns.forEach(b => {
+                        b.className = 'filter-btn px-4 py-2 text-xs font-semibold rounded-xl text-silver-300 hover:text-white transition-all';
+                    });
+                    btn.className = 'filter-btn px-4 py-2 text-xs font-semibold rounded-xl bg-gold-500 text-navy-950 transition-all';
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    fleetCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Modal Controller Functions
+            const modal = document.getElementById('modal-confirmation');
+            const modalBox = document.getElementById('modal-box');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const modalMessage = document.getElementById('modal-message');
+
+            function openModal(customText) {
+                if (customText) {
+                    modalMessage.textContent = customText;
+                }
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modalBox.classList.remove('scale-95');
+                modalBox.classList.add('scale-100');
+            }
+
+            function closeModal() {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modalBox.classList.remove('scale-100');
+                modalBox.classList.add('scale-95');
+            }
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // Form Submissions Handling
+            const heroQuoteForm = document.getElementById('hero-quote-form');
+            heroQuoteForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const orig = document.getElementById('orig-input').value;
+                const dest = document.getElementById('dest-input').value;
+                openModal(`Hemos recibido su solicitud de cotización para la ruta ${orig} ➔ ${dest}. Un asesor de vuelo revisará la disponibilidad de slots y le enviará el desglose presupuestario en minutos.`);
+                heroQuoteForm.reset();
+            });
+
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('contact-name').value;
+                openModal(`Gracias ${name}. Su mensaje ha sido asignado con prioridad alta. Un Concierge de AeroLuxe se comunicará con usted de inmediato.`);
+                contactForm.reset();
+            });
+
+            const newsletterForm = document.getElementById('newsletter-form');
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                openModal('Su suscripción al boletín VIP de Empty Legs y rutas exclusivas ha sido activada con éxito.');
+                newsletterForm.reset();
+            });
+
+            // Default date setup for date picker
+            const dateInput = document.getElementById('date-input');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.value = today;
+                dateInput.min = today;
+            }
+        });
+
+        // Global Helper function to auto-fill selected Jet in form
+        function selectJet(jetName) {
+            const input = document.getElementById('selected-jet-input');
+            const contactSection = document.getElementById('contacto');
+            if (input && contactSection) {
+                input.value = jetName;
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                input.focus();
+            }
+        }
+    </script>
+</body>
+</html>
